@@ -1,0 +1,262 @@
+<h1>ÜRÜNLERİ DÜZENLE</h1>
+
+<button
+            class="btn btn-outline-primary"
+            (click)="newItem_dialog(add_item_modal)"
+          >
+            <i class="fas fa-edit"> Item Ekle</i>
+          </button>
+
+<table class="table table-bordered projects">
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>&nbsp;</th>
+        <th>Ürün Adı</th>
+        <th>Fiyat</th>
+        <th>Tür</th>
+        <th>Fotoğraf</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of Items">
+        <td>
+            
+          <button
+            class="btn btn-outline-primary"
+            (click)="updateUser_dialog(u, update_user_modal)"
+          >
+            <i class="fas fa-edit"> Güncelle</i>
+          </button>
+        </td>
+        <td>
+          <button
+            class="btn btn-outline-danger"
+            (click)="deleteUser_dialog(u, delete_user_modal)"
+          >
+            <i class="fas fa-trash-alt"> Sil</i>
+          </button>
+        </td>
+        <td>
+          {{ u.title }}
+        </td>
+        <td>
+            {{ u.price }} TL
+          </td>
+          <td>
+            {{ u.type }} 
+          </td>
+        <td>
+          <div class="user-block">
+            <img
+              class="img-circle img-bordered-sm"
+              src="{{u.imageUrl}}"
+              style="max-width: 150px; max-height: 150px;"
+            />
+          </div>
+        </td>
+       
+      </tr>
+    </tbody>
+  </table>
+
+  
+  
+  <!-- MODAL -->
+
+  <ng-template #update_user_modal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        Güncelleme
+      </h4>
+      <button
+        type="button"
+        class="close"
+        title="aaa"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      
+    <div class="form-group">
+        <label for="email">Başlık:</label>
+        <input
+        type="text"
+        id="email"
+        [(ngModel)]="Item.title"
+        class="form-control"
+        />
+    
+
+    </div>
+    <div class="form-group">
+        <label for="email">Fotoğraf URL:</label>
+        <input
+        type="text"
+        id="email"
+        [(ngModel)]="Item.imageUrl"
+        class="form-control"
+        />
+    
+
+    </div>
+
+    <div class="form-group">
+        <label for="email">Fiyat:</label>
+        <input
+        type="text"
+        id="email"
+        [(ngModel)]="Item.price"
+        class="form-control"
+        />
+    
+
+    </div>
+
+       <div class="form-group">
+        <label for="role">Tür:</label>
+        <select
+          [(ngModel)]="Item.type"
+          id="role"
+          class="form-control"
+          
+        >
+         (change)="onRoleChange($event)" 
+          <option *ngFor="let r of Types" [ngValue]="r">
+            {{ r }}
+          </option>
+        </select>
+      </div> 
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="modal.close('Save click'); updateItem(Item);"
+      >
+        Kaydet
+      </button>
+    </div>
+  </ng-template>
+
+  <!-- Ekleme MODAL -->
+  <ng-template #add_item_modal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        EKLEME
+      </h4>
+      <button
+        type="button"
+        class="close"
+        title="aaa"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      
+    <div class="form-group">
+        <label for="email">Başlık:</label>
+        <input
+        type="text"
+        id="email"
+        [(ngModel)]="Item.title"
+        class="form-control"
+        />
+    
+
+    </div>
+    <div class="form-group">
+        <label for="email">Fotoğraf URL:</label>
+        <input
+        type="text"
+        id="email"
+        [(ngModel)]="Item.imageUrl"
+        class="form-control"
+        />
+    
+
+    </div>
+
+    <div class="form-group">
+        <label for="email">Fiyat:</label>
+        <input
+        type="text"
+        id="email"
+        [(ngModel)]="Item.price"
+        class="form-control"
+        />
+    
+
+    </div>
+
+       <div class="form-group">
+        <label for="role">Tür:</label>
+        <select
+          [(ngModel)]="Item.type"
+          id="role"
+          class="form-control"
+          
+        >
+         (change)="onRoleChange($event)" 
+          <option *ngFor="let r of Types" [ngValue]="r">
+            {{ r }}
+          </option>
+        </select>
+      </div> 
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="modal.close('Save click'); saveItem(Item);"
+      >
+        Kaydet1
+      </button>
+    </div>
+  </ng-template>
+
+  <!-- DELETE MODAL -->
+
+  <ng-template #delete_user_modal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        SİL
+      </h4>
+      <button
+        type="button"
+        class="close"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <strong>"{{ Item.title }}" </strong>
+      Silmek istenilen item
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-primary"
+        (click)="modal.close('Save click'); deleteUser(Item)"
+      >
+        SİL
+      </button>
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="modal.dismiss('Cross click')"
+      >
+        İptal
+      </button>
+    </div>
+  </ng-template>
+  
+  

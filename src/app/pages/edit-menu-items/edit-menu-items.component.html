@@ -1,0 +1,111 @@
+<h1>MENÜLERİ DÜZENLE</h1>
+
+<table class="table table-bordered projects">
+    <thead>
+      <tr>
+        <th>&nbsp;</th>
+        <th>Kategori Adı</th>
+        <th>Fotoğraf</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of menuItems">
+        <td>
+            
+          <button
+            class="btn btn-outline-primary"
+            (click)="updateUser_dialog(u, update_user_modal)"
+          >
+            <i class="fas fa-edit"> Güncelle</i>
+          </button>
+        </td>
+        <td>
+          {{ u.title }}
+        </td>
+        <td>
+          <div class="user-block">
+            <img
+              class="img-circle img-bordered-sm"
+              src="{{u.imageUrl}}"
+              style="max-width: 150px; max-height: 150px;"
+            />
+          </div>
+        </td>
+       
+      </tr>
+    </tbody>
+  </table>
+
+  <button
+  class="btn btn-outline-primary"
+  (click)="navigator()"
+>
+  <i class="fas fa-edit"> İtemleri Güncelleme Sayfasına Git</i>
+</button>
+  <!-- MODAL -->
+
+  <ng-template #update_user_modal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">
+        Güncelleme
+      </h4>
+      <button
+        type="button"
+        class="close"
+        title="aaa"
+        aria-label="Close"
+        (click)="modal.dismiss('Cross click')"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      
+    <div class="form-group">
+        <label for="email">Başlık:</label>
+        <input
+        type="text"
+        id="email"
+        [(ngModel)]="menuItem.title"
+        class="form-control"
+        />
+    
+
+    </div>
+    <div class="form-group">
+        <label for="email">Fotoğraf URL:</label>
+        <input
+        type="text"
+        id="email"
+        [(ngModel)]="menuItem.imageUrl"
+        class="form-control"
+        />
+    
+
+    </div>
+
+      <!-- <div class="form-group">
+        <label for="role">Rol:</label>
+        <select
+          [(ngModel)]="role"
+          id="role"
+          class="form-control"
+          
+        >
+         (change)="onRoleChange($event)" 
+          <option *ngFor="let r of menuitems" [ngValue]="r">
+            {{ r.title }}
+          </option>
+        </select>
+      </div> -->
+    </div>
+    <div class="modal-footer">
+      <button
+        type="button"
+        class="btn btn-outline-primary"
+        (click)="modal.close('Save click'); updateItem(menuItem);"
+      >
+        Kaydet
+      </button>
+    </div>
+  </ng-template>

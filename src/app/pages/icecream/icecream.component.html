@@ -1,0 +1,7 @@
+<a style="color: white;" (click)="home()"> < Ana Menüye Dön</a>
+<div class="container">
+    <h2 style="color: white;">Dondurmalar</h2>
+    <ul>
+        <li *ngFor="let i of menuItems" ><img style="max-width: 85px;max-height: 85px;" src="{{i.imageUrl}}" /><p>{{i.title}}: {{i.price}} ₺</p></li>
+    </ul>
+</div>

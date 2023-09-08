@@ -1,0 +1,23 @@
+body {background-color: black;}
+
+.container {
+    width: 95%;
+}
+
+
+ul > li p {
+    margin:0 auto;
+    
+    width: 60%;
+    display: block;
+    
+}
+
+li{
+    margin-top: 10px;
+}
+
+li{
+    margin-top: 20px;
+}
+

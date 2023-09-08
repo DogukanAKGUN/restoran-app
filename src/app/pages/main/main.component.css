@@ -1,0 +1,18 @@
+body {background-color: black;}
+
+.container {
+    width: 95%;
+}
+
+
+ul > li p {
+    float: right;
+}
+
+p{
+    padding-right: 20%;
+}
+
+li{
+    margin-top: 20px;
+}

@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+body {background-color: black;}
+
+p {
+    color:white;
+}
+
+.container {
+    width: 18%;
+  }
+  
+  ul {
+    list-style-type: none;
+  }
+  
+  ul > li p {
+    float: right;
+  }
