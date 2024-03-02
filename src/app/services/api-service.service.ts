@@ -13,79 +13,79 @@ export class ApiServiceService {
 
   login(req:any) {
     return this.http.post(
-      `http://127.0.0.1:5000/login`,req
+      `https://flask-production-7521.up.railway.app/login`,req
     );
   }
 
   updateMenuItem(req:any) {
     return this.http.post(
-      `http://127.0.0.1:5000/update-menu-item`,req
+      `https://flask-production-7521.up.railway.app/update-menu-item`,req
     );
   }
 
   updateItem(req:any) {
     return this.http.post(
-      `http://127.0.0.1:5000/update-item`,req
+      `https://flask-production-7521.up.railway.app/update-item`,req
     );
   }
 
   saveItem(req:any) {
     return this.http.post(
-      `http://127.0.0.1:5000/save-item`,req
+      `https://flask-production-7521.up.railway.app/save-item`,req
     );
   }
 
   deleteItem(req:any) {
     return this.http.post(
-      `http://127.0.0.1:5000/delete-item`,req
+      `https://flask-production-7521.up.railway.app/delete-item`,req
     );
   }
 
   getMenuItems() {
     return this.http.get(
-      `http://127.0.0.1:5000/script`
+      `https://flask-production-7521.up.railway.app/script`
     );
   }
 
   getItems() {
     return this.http.get(
-      `http://127.0.0.1:5000/get-items`
+      `https://flask-production-7521.up.railway.app/get-items`
     );
   }
 
   getHotDrinkItems() {
     return this.http.get(
-      `http://127.0.0.1:5000/hot-drinks`
+      `https://flask-production-7521.up.railway.app/hot-drinks`
     );
   }
 
   getColdDrinkItems() {
     return this.http.get(
-      `http://127.0.0.1:5000/cold-drinks`
+      `https://flask-production-7521.up.railway.app/cold-drinks`
     );
   }
 
   getToastsItems() {
     return this.http.get(
-      `http://127.0.0.1:5000/toasts`
+      `https://flask-production-7521.up.railway.app/toasts`
     );
   }
 
   getSnacksItems() {
     return this.http.get(
-      `http://127.0.0.1:5000/snacks`
+      `https://flask-production-7521.up.railway.app/snacks`
     );
   }
 
   getIcecreamItems() {
     return this.http.get(
-      `http://127.0.0.1:5000/icecream`
+      `https://flask-production-7521.up.railway.app/icecream`
     );
   }
 
   getCandDrinkItems() {
     return this.http.get(
-      `http://127.0.0.1:5000/can-drinks`
+      `https://flask-production-7521.up.railway.app/can-drinks`
     );
   }
 }
